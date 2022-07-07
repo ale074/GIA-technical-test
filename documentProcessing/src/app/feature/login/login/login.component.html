@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="content">
+      <h1>Login</h1>
+      <div>
+        <form [formGroup]="dataLoginForm" autocomplete="off">
+          <div class="item-login">
+            <input id="login__email" type="email" placeholder="Email" formControlName="email">
+            <span *ngIf="dataLoginForm.controls.email.invalid && (dataLoginForm.controls.email.dirty || dataLoginForm.controls.email.touched)" id="login__email-error" class="alert error message-alert">
+                <div *ngIf="(dataLoginForm.controls.email.errors?.required)">
+                  Email is required
+                </div>
+                <div *ngIf="dataLoginForm.controls.email.invalid">
+                  invalid email address
+                </div>
+            </span>
+          </div>
+          <div class="item-login">
+            <input id="login__password"  type="password" placeholder="Password"  formControlName="password">
+            <div id="login__password-error" *ngIf="dataLoginForm.controls.password.invalid && (dataLoginForm.controls.password.dirty || dataLoginForm.controls.password.touched)" class="alert error message-alert">
+                <div *ngIf="dataLoginForm.controls.password.errors?.required">
+                  Password is required
+                </div>
+                <div *ngIf="dataLoginForm.controls.password.errors?.minlength && !dataLoginForm.controls.password.errors?.required">
+                  The minimum of characters will be 8
+                </div>
+            </div>
+            
+          </div>
+          <div class="item-login">
+            <button (click)="login()" id="login__btn-login">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+  </div>
