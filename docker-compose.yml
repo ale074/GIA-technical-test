@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  word-processor-server:
+    image: syncfusion/word-processor-server:latest
+    environment:
+      #Provide your license key for activation
+      SYNCFUSION_LICENSE_KEY: LICENSE_KEY
+
+    volumes:
+      - C:\Docker\Data:/app/Data
+    ports:
+      - '6002:80'

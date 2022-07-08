@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 
 
   public redirectUsers(): void {
-    this.router.navigateByUrl('/users/list');
+    this.router.navigateByUrl('/users');
   }
 
 
