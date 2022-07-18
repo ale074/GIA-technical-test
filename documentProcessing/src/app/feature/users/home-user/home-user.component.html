@@ -1,4 +1,48 @@
-<div class="container pt-5">
-    <button class="btn btn-primary">upload document</button>
-
+<div class="container pt-5 vh-100">
+    <div class="row h-100">
+        <div class="col-md-3">
+            <button *ngIf="!showDocuments" class="btn btn-primary" (click)="makeDocument();">Make document</button>
+        </div>
+        <div class="col-md-6 h-75">
+            <div *ngIf="showDocuments" id="doc" class="w-100 h-100 bg-white d-flex justify-content-center">
+                <div id="signature" class="text-center">
+                    <img *ngIf="showstamp" id="userStamp" src="{{stamp}}" alt="{{stamp}}">
+                    <p *ngIf="showTimeAndName">{{time}}</p>
+                    <h5 *ngIf="showTimeAndName">{{name}}</h5>
+                    <h5 *ngIf="showUniqueSignatureCode">{{uniqueSignatureCode}}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button *ngIf="showSignatureOptions" class="btn btn-primary m-3" (click)="signWithStamp();">Sign with stamp</button>
+            <button *ngIf="showSignatureOptions" class="btn btn-primary m-3" (click)="signWithStampTimeAndName();">Sign with stamp time and name</button>
+            <div>
+                <button *ngIf="showSignatureOptions" class="btn btn-primary m-3" data-toggle="modal" data-target="#addUniqueSignatureCodeModal">Add a unique signature code</button>
+            <div class="modal fade" id="addUniqueSignatureCodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="addUniqueSignatureCodeModal">Add a unique signature code</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">@</span>
+                            </div>
+                            <input type="text" [(ngModel)]="uniqueSignatureCode" class="form-control" placeholder="unique signature code" aria-label="Username" aria-describedby="basic-addon1">
+                          </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" (click)="addUniqueSignatureCode();" data-dismiss="modal">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+            </div>
+    </div>
 </div>

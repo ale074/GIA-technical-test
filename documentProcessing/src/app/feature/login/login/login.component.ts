@@ -33,9 +33,10 @@ export class LoginComponent implements OnInit {
   async login() {
     const email = this.dataLoginForm.controls.email.value;
     const password = this.dataLoginForm.controls.password.value;
-    const result = await this.loginService.login(email, password) as {token: string};
+    const result = await this.loginService.login(email, password) as {token: string, id: string};
     if(result.token) {
       localStorage.setItem('token',result.token);
+      sessionStorage.setItem('uid', result.id);
       this.redirectUsers();
     }
   }

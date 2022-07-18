@@ -1,20 +1,17 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class UserService {
 
   constructor(private http: HttpClient) { }
-  public login(email: string, password: string) {
-    
+  public findUserById(uid: string) {
     return this.http.post(
-      'http://localhost:8080/user/loginUser',
+      'http://localhost:8080/user/findUserById',
       {
-        "email": email,
-        "password": password
+        "id": uid
       },
       {
         headers: new HttpHeaders({
