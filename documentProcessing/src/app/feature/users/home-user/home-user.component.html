@@ -4,14 +4,15 @@
             <button *ngIf="!showDocuments" class="btn btn-primary" (click)="makeDocument();">Make document</button>
         </div>
         <div class="col-md-6 h-75">
-            <div *ngIf="showDocuments" id="doc" class="w-100 h-100 bg-white d-flex justify-content-center">
+          <app-pdf-viewer></app-pdf-viewer>
+            <!--<div *ngIf="showDocuments" id="doc" class="w-100 h-100 bg-white d-flex justify-content-center">
                 <div id="signature" class="text-center">
                     <img *ngIf="showstamp" id="userStamp" src="{{stamp}}" alt="{{stamp}}">
                     <p *ngIf="showTimeAndName">{{time}}</p>
                     <h5 *ngIf="showTimeAndName">{{name}}</h5>
                     <h5 *ngIf="showUniqueSignatureCode">{{uniqueSignatureCode}}</h5>
                 </div>
-            </div>
+            </div>-->
         </div>
         <div class="col-md-3">
             <button *ngIf="showSignatureOptions" class="btn btn-primary m-3" (click)="signWithStamp();">Sign with stamp</button>
